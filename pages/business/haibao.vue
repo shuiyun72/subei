@@ -1,11 +1,11 @@
 <template>
 	<view class="haibao">
 		<view class="show_img">
-			<image src="../../static/img/yqhb1.png" mode="widthFix" class="img"></image>
+			<image :src="'../../static/img/'+selImg"   class="img"></image>
 		</view>
 		<view class="img_list">
-			<view class="item" v-for="item in imgList">
-				<image :src="'../../static/img/'+item.img" mode="widthFix" class="img"></image>
+			<view class="item" v-for="item in imgList" @click="selHb(item.img)">
+				<image :src="'../../static/img/'+item.img"  class="img"></image>
 			</view>
 		</view>
 		<view class="hb_btn">
@@ -25,8 +25,14 @@
 					{img:"yqhb1.png"},
 					{img:"yqhb4.png"},
 					{img:"yqhb1.png"}
-				]
+				],
+				selImg:"yqhb1.png"
 			};
+		},
+		methods:{
+			selHb(el){
+				this.selImg = el;
+			}
 		}
 	}
 </script>
@@ -50,6 +56,7 @@
 		text-align: center;
 		.img{
 			width: 460upx;
+			height: 820upx;
 		}
 	}
 	.img_list{
@@ -61,7 +68,7 @@
 			margin-right: 20upx;
 			.img{
 				width: 100%;
-				height: 230upx;
+				height: 226upx;
 			}
 		}
 	}

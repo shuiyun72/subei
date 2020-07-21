@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<view class="bar4_body">
-			<view class="item" v-for="item in 2" @click="toDetail(item)">
+			<view class="item" v-for="(item,index) in 2" @click="toDetail(index)">
 				<image src="../../static/img/jrsx2.png" class="img"></image>
 				<view class="info">
 					<view class="t1">

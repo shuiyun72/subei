@@ -1,0 +1,1 @@
+<view class="my_order_busi data-v-c3420f26"><block wx:for="{{5}}" wx:for-item="i" wx:for-index="__i0__"><view class="b_item data-v-c3420f26"><view class="left data-v-c3420f26"><view class="t data-v-c3420f26">购买塑贝水乳</view><view class="time data-v-c3420f26">2020-056-09 09:00</view></view><view class="right data-v-c3420f26">购买人: 张萌萌</view></view></block></view>

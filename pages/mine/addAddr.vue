@@ -49,9 +49,10 @@
 		},
 		methods:{
 			addAdres(){
-				uni.navigateTo({
-					url:'./address?pageType='+this.pageType
-				})
+				// uni.navigateTo({
+				// 	url:'./address?pageType='+this.pageType
+				// })
+				uni.navigateBack()
 			}
 		}
 	}

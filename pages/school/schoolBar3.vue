@@ -2,7 +2,7 @@
 	<view class="school_bar1">
 		<view class="sc_body">
 			<view class="s_t1_list">
-				<view class="item" v-for="item in 12" @click="cDetali(item)">
+				<view class="item" v-for="(item,index) in list" :key="index" @click="cDetali('item')">
 					<image src="../../static/img/home/kc1.png" class="img"></image>
 					<view class="info_box">
 						<view class="t_t">
@@ -30,7 +30,7 @@
 	export default {
 		data() {
 			return {
-
+				list:[1,2,3,4,5,6]
 			};
 		},
 		methods:{

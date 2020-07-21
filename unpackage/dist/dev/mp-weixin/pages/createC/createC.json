@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "大学生创业",
+  "usingComponents": {
+    "uni-list": "/components/uni-list/uni-list",
+    "uni-list-item-point": "/components/uni-list-item-point/uni-list-item-point"
+  }
+}

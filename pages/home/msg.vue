@@ -1,5 +1,7 @@
 <template>
 	<view class="msg_all">
+		<uni-nav-bar color="#333333" background-color="#ffffff" :status-bar="true" left-icon="arrowleft" :title="barTitle"
+		 @clickLeft="back" />
 		<view class="t_img">
 			<image src="../../static/img/wanc.png" class="img"></image>
 		</view>
@@ -158,14 +160,9 @@
 		data() {
 			return {
 				msgShow: "",
-				pageType:""
+				pageType:"",
+				barTitle:"购买成功"
 			};
-		},
-		onBackPress() {
-			uni.switchTab({
-				url:'./home'
-			})
-			return true;
 		},
 		onLoad(ph) {
 			// pageType   == goodsDetail
@@ -174,49 +171,33 @@
 			// 大学生申请
 			if(ph.pageType){ 
 				if (ph.pageType == 'createC' || ph.pageType == 'schoolBuy') {
-					uni.setNavigationBarTitle({
-						title: "购买成功"
-					})
+					this.barTitle = "购买成功"
 				} else
 				if (ph.pageType == 'goodsDetail') {
 					if( ph.msgShow == '0'
 						|| ph.msgShow == '1'
 						|| ph.msgShow == '2'
 					){
-						uni.setNavigationBarTitle({
-							title: "购买成功"
-						})
+						this.barTitle = "购买成功"
 					}
 					if( ph.msgShow == '3'){
-						uni.setNavigationBarTitle({
-							title: "收货成功"
-						})
+						this.barTitle = "收货成功"
 					}
 				}else
 				if (ph.pageType == 'getMoney') {
-					uni.setNavigationBarTitle({
-						title: "提现完成"
-					})
+					this.barTitle = "提现完成"
 				}else
 				if (ph.pageType == 'changeTj') {
-					uni.setNavigationBarTitle({
-						title: "更换成功"
-					})
+					this.barTitle = "更换成功"
 				}else
 				if (ph.pageType == 'editPhone' || ph.pageType =='bindVx') {
-					uni.setNavigationBarTitle({
-						title: "购买成功"
-					})
+					this.barTitle = "购买成功"
 				}else
 				if (ph.pageType == 'vip199') {
-					uni.setNavigationBarTitle({
-						title: "提交成功"
-					})
+					this.barTitle = "提交成功"
 				}else
 				if (ph.pageType == 'buyVip') {
-					uni.setNavigationBarTitle({
-						title: "购买成功"
-					})
+					this.barTitle = "购买成功"
 				}
 				this.pageType = ph.pageType
 			}
@@ -225,10 +206,20 @@
 			}					
 		},
 		methods:{
+			back() {
+				uni.switchTab({
+					url:'./home'
+				})
+				return true;
+			},
 			showDetail(el){
 				uni.navigateTo({
 					url:'../order/order?tabSel='+el
 				})
+				// this.$store.commit("setOrder",el);
+				// uni.navigateBack({
+				// 	delta:1
+				// })
 			},
 			turnHome(){
 				uni.switchTab({
@@ -246,8 +237,8 @@
 				})
 			},
 			turnSet(){
-				uni.navigateTo({
-					url:"../mine/set"
+				uni.navigateBack({
+					delta:2
 				})
 			},
 			showVip199(){

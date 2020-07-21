@@ -3,7 +3,7 @@
 		<uni-nav-bar color="#333333" background-color="#ffffff" :status-bar="true" left-icon="arrowleft" :title="barTitle"
 		 @clickLeft="back" />
 		 <view class="adres_body">
-		 	<view class="adres_item" v-for="i in [{name:'a'},{name:'b'}]" @click="selectAdres(i)">
+		 	<view class="adres_item" v-for="(i,index) in itemList" :key="index" @click="selectAdres(i)">
 		 		<view class="t1">
 		 			<text class="name">张海静</text>
 					<text class="phone">18736536598</text>
@@ -39,6 +39,7 @@
 	export default {
 		data() {
 			return {
+				itemList:[{name:'a'},{name:'b'}],
 				selRadio:'a',
 				pageType:"",
 				msgShow:"",
@@ -49,7 +50,7 @@
 		onLoad(ph) {
 			if(ph.pageType){
 				this.pageType = ph.pageType
-				if(this.pageType == 'orderTrue'){
+				if(this.pageType == 'goodsDetail'){
 					this.barTitle = "地址选择"
 				}else
 				if(this.pageType == 'mine'){
@@ -70,9 +71,12 @@
 		methods: {
 			back() {
 				console.log("ss")
-				if(this.pageType == "orderTrue"){
-					uni.navigateTo({
-						url:'../order/orderTrue'
+				if(this.pageType == "goodsDetail"){
+					// uni.navigateTo({
+					// 	url:'../order/orderTrue'
+					// })
+					uni.navigateBack({
+						delta:1
 					})
 				}else
 				if(this.pageType == "mine"){
@@ -83,10 +87,13 @@
 			},
 			selectAdres(item){
 				console.log(item)
-				this.$store.commit('setAdres',{name:"ss"})
-				if(this.pageType == "orderTrue"){
-					uni.navigateTo({
-						url:'../order/orderTrue'
+				// this.$store.commit('setAdres',item)
+				if(this.pageType == "goodsDetail"){
+					// uni.navigateTo({
+					// 	url:'../order/orderTrue?pageType='+this.pageType
+					// })
+					uni.navigateBack({
+						delta:1
 					})
 				}
 			},

@@ -1,5 +1,7 @@
 <template>
 	<view class="order_true">
+		<uni-nav-bar color="#333333" background-color="#ffffff" :status-bar="true" left-icon="arrowleft" :title="barTitle"
+		 @clickLeft="back" />
 		<!-- 确认订单 -->
 		<view class="order_info" v-if="pageType =='goodsDetail'">
 			<view class="t1">
@@ -178,6 +180,7 @@
 	export default {
 		data() {
 			return {
+				barTitle:"确认订单",
 				orderNum: 1,
 				radio: 'A',
 				quList: [{
@@ -202,53 +205,37 @@
 		onLoad(ph) {
 			if(ph.pageType){
 				if (ph.pageType == 'createC') {
-					uni.setNavigationBarTitle({
-						title: "会员购买"
-					})
-					
+					this.barTitle = "会员购买"
 				} else
 				if (ph.pageType == 'goodsDetail') {
-					uni.setNavigationBarTitle({
-						title: "确认订单"
-					})
+					this.barTitle = "确认订单"
 				}else
 				if (ph.pageType == 'vip199') {
-					uni.setNavigationBarTitle({
-						title: "199会员礼包"
-					})
+					this.barTitle = "199会员礼包"
 				}else
 				if (ph.pageType == 'buyVip') {
-					uni.setNavigationBarTitle({
-						title: "会员购买"
-					})
+					this.barTitle = "会员购买"
 				}
 				this.pageType = ph.pageType
 			}
 			if(ph.msgShow){
 				this.msgShow = ph.msgShow
 			}
-			
-		},
-		onBackPress() {
-			if(this.pageType == 'goodsDetail'){
-				uni.navigateTo({
-					url: "../goodsDetail/goodsDetail"
-				})
-				return true;
-			}else{
-				uni.navigateTo({
-					url: "../goodsDetail/goodsDetail"
-				})
-				uni.switchTab({
-					url:'../home/home'
-				})
-				return true;
-			}
-			
-			
-			
 		},
 		methods: {
+			back(){
+				if(this.pageType == 'goodsDetail'){
+					uni.navigateBack({
+						delta:1
+					})
+					return true;
+				}else{
+					uni.switchTab({
+						url:'../home/home'
+					})
+					return true;
+				}	
+			},
 			numFor(num) {
 				console.log(num)
 				this.orderNum = num;
@@ -273,7 +260,7 @@
 			},
 			selectAddress(el) {
 				uni.navigateTo({
-					url: '../mine/address?pageType=orderTrue&msgShow=' + el
+					url: "../mine/address?pageType="+this.pageType+"&msgShow=" + el
 				})
 			}
 		}

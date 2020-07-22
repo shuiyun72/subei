@@ -228,7 +228,7 @@
 
 			.yqm_r {
 				position: absolute;
-				top: 130upx;
+				top: 90upx;
 				right: 0;
 				background-color: #1BB09A;
 				padding: 12upx 12upx 12upx 24upx;

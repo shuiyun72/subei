@@ -171,7 +171,7 @@
 <style lang="scss" scoped>
 	.home_bar2 {
 		.p6_recommend {
-			padding: 26upx;
+			padding:calc(44px + env(safe-area-inset-top)) 26upx 26upx 26upx;
 			background-color: #f0f0f0;
 			.img_box {
 				padding: 30upx 200upx 10upx;
@@ -221,7 +221,6 @@
 		.select_box_sy {
 			padding: 20upx 0;
 			background-color: #fff;
-		
 			.item_s {
 				font-size: 32upx;
 				padding: 14upx 0upx 14upx 66upx;
@@ -266,8 +265,12 @@
 		}
 
 		.select_sy {
-			position: relative;
 			z-index:10;
+			position:fixed;
+			top:calc(44px + env(safe-area-inset-top));
+			left:0;
+			background-color: #fff;
+			width: 750upx;
 			.true_btn {
 				display: flex;
 				background-color: #fff;

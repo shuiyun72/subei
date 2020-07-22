@@ -4,7 +4,7 @@
 			<view class="item" v-for="(item,index) in tabList" :class="{'active':index == tabSel}" @click="selectTab(item,index)">{{item.text}}</view>
 		</view>
 		<view class="order_body">
-			<view class="order_card" v-for="item in 2" @click="toDetail(item)">
+			<view class="order_card" v-for="(item,index) in orderList" @click="toDetail(index)">
 				<view class="o_title">
 					订单编号: 1039452315643612345
 				</view>
@@ -111,7 +111,8 @@
 						type: 4
 					}
 				],
-				itemList: []
+				itemList: [],
+				orderList:[1,2]
 			}
 		},
 		onLoad(ph) {

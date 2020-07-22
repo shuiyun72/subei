@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "确认订单",
-  "navigationStyle": "custom",
-  "enablePullDownRefresh": true,
-  "usingComponents": {
-    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
-    "uni-number-box": "/components/uni-number-box/uni-number-box"
-  }
-}

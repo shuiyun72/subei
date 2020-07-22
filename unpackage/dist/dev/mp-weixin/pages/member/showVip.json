@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "会员介绍",
-  "usingComponents": {
-    "uni-popup": "/components/uni-popup/uni-popup"
-  }
-}

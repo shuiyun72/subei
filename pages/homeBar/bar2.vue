@@ -263,12 +263,21 @@
 				transform: scale(.8);
 			}
 		}
-
+		/* #ifdef H5 */
+		.select_sy{
+			top:calc(44px + env(safe-area-inset-top));
+		}
+		/* #endif */
+		/* #ifndef H5 */
+		.select_sy{
+			top:0;
+		}
+		/* #endif */
 		.select_sy {
 			z-index:10;
 			position:fixed;
-			top:calc(44px + env(safe-area-inset-top));
 			left:0;
+			// top:calc(44px + env(safe-area-inset-top));
 			background-color: #fff;
 			width: 750upx;
 			.true_btn {
